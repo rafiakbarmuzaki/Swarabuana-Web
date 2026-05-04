@@ -13,24 +13,6 @@ body {
     padding-top: 80px; /* Jarak agar konten tidak tertutup navbar */
 }
 
-/* Media Query untuk layar HP (maksimal lebar 767px) */
-@media (max-width: 767px) {
-    .hero-band {
-        /* Mengubah agar seluruh foto terlihat tanpa terpotong */
-        background-size: contain;
-        
-        /* Mengatur tinggi agar menyesuaikan dengan foto yang mengecil, 
-           atau hapus baris ini jika ingin tetap tinggi dengan area kosong */
-        height: auto; 
-        
-        /* Memberikan padding atas/bawah agar konten teks tidak menempel */
-        padding: 50px 0; 
-        
-        /* Memastikan latar belakang di area kosong berwarna senada (misal navy) */
-        background-color: #2c4a7c; 
-    }
-}
-
 /* NAVBAR - Dipaksa muncul di atas dengan Navy Blue */
 .navbar {
     background-color: var(--navy-blue) !important;
@@ -81,12 +63,29 @@ body {
 
 /* HERO SECTION - Background foto band Swarabuana.jpg */
 .hero-band {
-    background: url('Rafi Akbar Muzaki/Swarabuana.png') center/cover no-repeat;
-    height: 110vh;
+    background: url('Rafi Akbar Muzaki/Swarabuana.png') no-repeat;
+    background-position: center 10% !important; 
+    background-size: cover !important;
+    
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+}
+
+@media (max-width: 576px) {
+    .hero-band {
+        /* Mengurangi tinggi di HP agar foto tidak dipaksa memanjang ke bawah */
+        height: 70vh !important;
+        
+        /* Geser posisi foto lebih ke atas lagi khusus untuk layar HP */
+        background-position: center top !important;
+        
+        /* Jika masih terpotong, aktifkan baris di bawah ini (hapus tanda komentarnya) */
+        /* background-size: contain !important; */
+    }
 }
 
 /* TOMBOL KOTAK KONTRAS */

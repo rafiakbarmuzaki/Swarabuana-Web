@@ -94,7 +94,7 @@ body {
 @media (max-width: 767px) {
     .hero-band {
         /* Di HP jangan dipaksa 100vh agar tidak kepotong pinggirnya */
-        height: auto !important; 
+        height: 40vh !important; 
         
         /* Geser posisi agar personil di tengah tetap aman */
         background-position: center top !important;

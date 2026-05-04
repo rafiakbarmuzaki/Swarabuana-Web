@@ -75,16 +75,21 @@ body {
     position: relative;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
     .hero-band {
-        /* Mengurangi tinggi di HP agar foto tidak dipaksa memanjang ke bawah */
-        height: 70vh !important;
-        
-        /* Geser posisi foto lebih ke atas lagi khusus untuk layar HP */
+        /* Menampilkan seluruh foto tanpa terpotong */
+        background-size: contain !important;
         background-position: center top !important;
         
-        /* Jika masih terpotong, aktifkan baris di bawah ini (hapus tanda komentarnya) */
-        /* background-size: contain !important; */
+        /* Mengatur tinggi agar pas dengan foto, tidak terlalu tinggi ke bawah */
+        height: auto !important;
+        min-height: 350px; 
+        
+        /* Memberikan jarak agar teks di bawahnya tidak menempel */
+        padding: 40px 0;
+        
+        /* Warna latar belakang jika ada sisa ruang */
+        background-color: #ffffff;
     }
 }
 

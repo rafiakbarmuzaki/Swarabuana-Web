@@ -75,21 +75,33 @@ body {
     position: relative;
 }
 
+.hero-band {
+    /* Path file foto kamu */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('Rafi Akbar Muzaki/Swarabuana.png') no-repeat;
+    
+    /* Memastikan foto selalu fokus ke wajah personel */
+    background-size: cover;
+    background-position: center 20%; 
+    
+    /* Tinggi hero section */
+    height: 100vh; 
+    width: 100%;
+    position: relative;
+}
+
+/* KHUSUS UNTUK HP (Responsive Fix) */
 @media (max-width: 767px) {
     .hero-band {
-        /* Menampilkan seluruh foto tanpa terpotong */
-        background-size: contain !important;
+        /* Di HP jangan dipaksa 100vh agar tidak kepotong pinggirnya */
+        height: 60vh !important; 
+        
+        /* Geser posisi agar personil di tengah tetap aman */
         background-position: center top !important;
-        
-        /* Mengatur tinggi agar pas dengan foto, tidak terlalu tinggi ke bawah */
-        height: auto !important;
-        min-height: 350px; 
-        
-        /* Memberikan jarak agar teks di bawahnya tidak menempel */
-        padding: 40px 0;
-        
-        /* Warna latar belakang jika ada sisa ruang */
-        background-color: #ffffff;
+    }
+    
+    .hero-band h1 {
+        font-size: 2.5rem;
     }
 }
 

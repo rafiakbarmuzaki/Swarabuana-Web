@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarabuana - Official Band Website</title>
+    <!-- CSS Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150; // Jarak munculnya elemen
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    // Jalankan fungsi saat scroll
+    window.addEventListener("scroll", reveal);
+    
+    // Jalankan sekali saat halaman baru dibuka
+    reveal();
+</script>
+
+<script>
+    window.addEventListener('load', function() {
+        // Menambahkan class ke body saat semua konten selesai dimuat
+        document.body.classList.add('page-loaded');
+    });
+
+    // Opsional: Jika kamu ingin efek saat link diklik (menutup dulu baru pindah)
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            let target = this.getAttribute('href');
+            
+            // Hanya berlaku untuk link halaman lain (bukan internal anchor #)
+            if (target && !target.startsWith('#') && !target.startsWith('tel:') && !target.startsWith('mailto:')) {
+                e.preventDefault();
+                document.body.classList.remove('page-loaded');
+                
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 800); // Durasi harus sama dengan transition di CSS
+            }
+        });
+    });
+</script>
+
+<script>
+    window.addEventListener('load', function() {
+        const overlay = document.querySelector('.welcome-overlay');
+        
+        // Memberikan sedikit delay (misal 300ms) sebelum mulai memudar agar terasa transisinya
+        setTimeout(() => {
+            overlay.classList.add('fade-to-bright');
+        }, 300);
+    });
+</script>
+
+<script>
+    function createCountdown(id, dateString) {
+        const targetDate = new Date(dateString).getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const display = document.getElementById(id);
+            
+            if (distance < 0) {
+                clearInterval(timer);
+                display.innerHTML = "ACARA SEDANG BERLANGSUNG!";
+                display.style.color = "#ff4d4d";
+            } else {
+                display.innerHTML = `${days} Hari ${hours} jam ${minutes} menit ${seconds} detik`;
+            }
+        }, 1000);
+    }
+
+    // Panggil fungsi untuk masing-masing acara
+    createCountdown("countdown-mbec", "June 11, 2026 09:00:00");
+    createCountdown("countdown-jkt", "July 20, 2026 19:00:00");
+</script>
+<body>
+
+<div class="welcome-overlay"></div>
+<div class="page-transition"></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+    <div class="container">
+        <!-- Perbaikan: Ikon diletakkan di dalam tag a dengan benar -->
+        <a class="navbar-brand fw-bold" href="#home">
+            <span class="logo-container">
+        <img src="Rafi Akbar Muzaki/logo.jpeg" alt="Logo Swarabuana">
+            </span>SWARABUANA
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tentang">Profil</a></li>
+                <li class="nav-item"><a class="nav-link" href="#jadwal">Jadwal Manggung</a></li>
+                <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kontak">Contact</a></li>
+                <li class="nav-item ms-3">
+                    <a href="#kontak" class="btn btn-booking shadow-lg">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-band">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-10">
+                    <div class="d-flex justify-content-center gap-3">
+                        <div class="container reveal fade-up"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Section -->
+    <section id="tentang" class="section-padding bg-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="container reveal fade-up"></div>
+                    <h2 class="mb-4 text-center">Tentang <span class="font-weight-bold" style="font-family: 'Dancing Script', cursive;">Swarabuana</span></h2>
+                    <p class="lead text-muted mb-4 text-center">
+                        "Perjalanan musik yang lahir dari kegelisahan hati dan semangat untuk berekspresi secara bebas."
+                    </p>
+                    <div class="p-4 bg-dark text-white rounded-4 shadow-lg">
+                        <p class="text-justify mb-3">
+                            Terbentuk di Jakarta, <strong>Swarabuana</strong> adalah kumpulan musisi dari Program Studi Informatika Universitas Mercu Buana. Kami percaya bahwa musik adalah bahasa universal yang bisa menghubungkan satu jiwa dengan jiwa lainnya.
+                        </p>
+                        <p class="mb-0 text-justify">
+                            Setiap lagu yang kami bawakan adalah refleksi dari pengalaman hidup, lingkungan sekitar, dan harapan akan hari esok yang lebih harmonis. Bergabunglah dalam perjalanan audio-visual kami.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personil Section -->
+    <section id="rilis" class="section-padding bg-light">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h2>Personil <span class="font-weight-bold" style="font-family: 'Dancing Script', cursive;">Swarabuana</span></h2>
+            <p class="text-muted">Mengenal lebih dekat para penggerak harmoni</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <!-- Personil 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="personil-card reveal">
+                    <div class="personil-img">
+                        <img src="Rafi Akbar Muzaki/Sakti.png" alt="Personil 1">
+                    </div>
+                    <div class="personil-info">
+                        <h5>Sakti Attila Aulia Bintang</h5>
+                        <h6>Informatika'24</h6>
+                        <p>Vocalist</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Personil 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="personil-card reveal">
+                    <div class="personil-img">
+                        <img src="Rafi Akbar Muzaki/Rafi.png" alt="Personil 2">
+                    </div>
+                    <div class="personil-info">
+                        <h5>Rafi Akbar Muzaki</h5>
+                        <h6>Informatika'24</h6>
+                        <p>Guitarist</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Personil 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="personil-card reveal">
+                    <div class="personil-img">
+                        <img src="Rafi Akbar Muzaki/Akbar.png" alt="Personil 3">
+                    </div>
+                    <div class="personil-info">
+                        <h5>Muhammad Akbaruddin</h5>
+                        <h6>Informatika'24</h6>
+                        <p>Guitarist</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Personil 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="personil-card reveal">
+                    <div class="personil-img">
+                        <img src="Rafi Akbar Muzaki/Aldo.png" alt="Personil 4">
+                    </div>
+                    <div class="personil-info">
+                        <h5>Marlando Johanis Molum</h5>
+                        <h6>Informatika'24</h6>
+                        <p>Drummer</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Personil 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="personil-card reveal">
+                    <div class="personil-img">
+                        <img src="Rafi Akbar Muzaki/Hafiz.png" alt="Personil 5">
+                    </div>
+                    <div class="personil-info">
+                        <h5>Ravi Hafiz Ardiansyah</h5>
+                        <h6>Informatika'25</h6>
+                        <p>Bassist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Jadwal Section (Mirip Info Harga) -->
+    <section id="jadwal" class="section-padding">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <div class="container reveal fade-up"></div>
+                <h2>Jadwal Manggung</h2>
+                <p class="text-muted">Jangan lewatkan energi live kami</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card card-price shadow-lg border-0">
+                        <div class="card-header bg-dark text-white text-center py-4">
+                            <h4 class="fw-bold mb-2">MBEC at Mercu Buana University (June 11, 2026)</h4>
+                            
+                            <!-- Elemen Hitung Mundur -->
+                            <div id="countdown-mbec" class="mb-3 fw-bold text-warning" style="font-size: 1.2rem;">
+                                Memuat hitung mundur...
+                            </div>
+
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=MBEC+at+Mercu+Buana+University&dates=20260611T020000Z/20260611T100000Z&details=Acara+MBEC+Swarabuana+Band+di+Universitas+Mercu+Buana&location=Universitas+Mercu+Buana,+Jakarta" 
+                            target="_blank" class="btn-calender">
+                            <i class="fas fa-calendar-plus me-2"></i>Save to Google Calendar
+                            </a>
+                           </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Galeri Section -->
+    <section id="galeri" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <div class="container reveal fade-up"></div>
+                <h2>Galeri Foto</h2>
+                <!-- <p class="text-muted">en terbaik kami Momdi atas panggung</p> -->
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item overflow-hidden rounded-3 shadow-sm">
+                        <div class="container reveal fade-up"></div>
+                        <img src="Rafi Akbar Muzaki/DSC_3588.JPG" class="img-fluid w-100" alt="Studio 1">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item overflow-hidden rounded-3 shadow-sm">
+                        <div class="container reveal fade-up"></div>
+                        <img src="Rafi Akbar Muzaki/DSC_3593.JPG" class="img-fluid w-100" alt="Studio 1">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item overflow-hidden rounded-3 shadow-sm">
+                        <div class="container reveal fade-up"></div>
+                        <img src="Rafi Akbar Muzaki/DSC_3596.JPG" class="img-fluid w-100" alt="Gitar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak" class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="container reveal fade-up"></div>
+                    <h4 span class="font-weight-bold" style="font-family: 'Dancing Script', cursive;">Swarabuana</span></h4>
+                    <p class="opacity-75">Band dari Informatika Universitas Mercu Buana yang fokus pada eksplorasi suara dan kedalaman lirik.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="container reveal fade-up"></div>
+                    <h5 class="fw-bold mb-3">Management</h5>
+                    <p><i class="fas fa-map-marker-alt me-2 text-warning"></i>
+                        <a href="https://maps.app.goo.gl/vf6p7MRvhSgzyaVaA" target="_blank" class="text-white text-decoration-none"> Jakarta, Indonesia    </a>
+                        <p><i class="fas fa-phone me-2 text-warning"></i> 
+                        <a href="https://api.whatsapp.com/send?phone=6285652100513&text=Halo%20Swarabuana,%20kami%20ingin%20mengundang%20kalian%20manggung!" target="_blank" class="text-white text-decoration-none"> 0856-5210-0513 (Sakti)</a>
+                    <p><i class="fas fa-phone me-2 text-warning"></i> 
+                        <a href="https://api.whatsapp.com/send?phone=6281818862411&text=Halo%20Swarabuana,%20kami%20ingin%20mengundang%20kalian%20manggung!" target="_blank" class="text-white text-decoration-none"> 0818-1886-2411 (Rafi)</a>
+                    <p><i class="fas fa-envelope me-2 text-warning"></i> 
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=moonbornemelody@gmail.com&su=Booking+Swarabuana+Band" target="_blank" class="text-white text-decoration-none"> swarabuana@gmail.com</a>
+                </div>
+                <div class="col-md-4 mb-4 text-center">
+                    <div class="container reveal fade-up"></div>
+                    <h5 class="fw-bold mb-3">Follow Us</h5>
+                    <div class="d-flex justify-content-center gap-3 fs-3">
+                        <a href="https://www.instagram.com/swaraabuana?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@swarabuana" target="_blank" class="text-white"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 opacity-25">
+            <div class="text-center">
+                <small class="opacity-50">© 2026 Swarabuana. Created by Rafi Akbar Muzaki.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

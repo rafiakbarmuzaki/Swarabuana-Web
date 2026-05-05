@@ -1,73 +1,75 @@
+/* 1. VARIABEL & DASAR */
 :root {
-    --navy-blue: #2c4a7c;      /* Warna biru baju band dari foto Swarabuana.jpg */
-    --light-blue: #dce7f3;     /* Warna biru muda aksen */
-    --pure-white: #d3dce4;     /* Latar belakang foto */
-    --soft-gray: #f8f9fa;      /* Warna lantai halus */
-    --dark-text: #1a1a1a;      /* Warna teks judul */
+    --navy-blue: #2c4a7c;
+    --light-blue: #dce7f3;
+    --pure-white: #d3dce4;
+    --soft-gray: #f8f9fa;
+    --dark-text: #1a1a1a;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
+    font-weight: 400; 
     background-color: var(--pure-white);
     color: var(--dark-text);
-    padding-top: 80px; /* Jarak agar konten tidak tertutup navbar */
+    padding-top: 80px;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
 }
 
-/* NAVBAR - Dipaksa muncul di atas dengan Navy Blue */
+/* 2. TIPOGRAFI */
+h1, h2, h3, h4, h5, .navbar-brand {
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* 3. NAVBAR & LOGO */
 .navbar {
     background-color: var(--navy-blue) !important;
     padding: 15px 0;
-    z-index: 9999 !important; /* Memastikan navbar di lapisan paling atas */
+    z-index: 9999 !important;
 }
 
-.navbar .navbar-brand {
-    font-family: 'Dancing Script', cursive !important;
+.navbar-brand {
+    display: flex;
+    align-items: center;
     font-size: 1.8rem;
-    color: var(--pure-white) !important;
+    color: #ffffff !important;
 }
 
 .navbar .nav-link {
     color: var(--pure-white) !important;
 }
 
-/* Kontainer Lingkaran untuk Logo */
 .logo-container {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 45px;          /* Ukuran lebar lingkaran */
-    height: 45px;         /* Ukuran tinggi lingkaran */
-    border: 2px solid #ffffff; /* Border lingkaran warna putih */
-    border-radius: 50%;   /* Membuat bentuk lingkaran sempurna */
-    overflow: hidden;     /* Memastikan gambar tetap di dalam lingkaran */
-    margin-right: 12px;   /* Jarak antara logo dan tulisan SWARABUANA */
-    background-color: #ffffff; /* Warna latar belakang di dalam lingkaran */
+    width: 45px;
+    height: 45px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+    background-color: #ffffff;
     vertical-align: middle;
 }
 
-/* Mengatur Gambar di Dalam Lingkaran */
 .logo-container img {
-    width: 80%;           /* Ukuran logo di dalam lingkaran (sesuaikan) */
+    width: 80%;
     height: 80%;
-    object-fit: contain;  /* Menjaga logo tidak gepeng */
+    object-fit: contain;
 }
 
-/* Penyesuaian teks Navbar-brand */
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    font-family: 'Dancing Script', cursive !important;
-    font-size: 1.8rem;
-    color: #ffffff !important;
-}
-
-/* HERO SECTION - Background foto band Swarabuana.jpg */
+/* 4. HERO SECTION */
 .hero-band {
-    background: url('Rafi Akbar Muzaki/Swarabuana.png') no-repeat;
-    background-position: center 10% !important; 
-    background-size: cover !important;
-    
-    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('Rafi Akbar Muzaki/Swarabuana.png') no-repeat;
+    background-size: cover;
+    background-position: center 20%; 
+    height: 100vh; 
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,37 +77,17 @@ body {
     position: relative;
 }
 
-.hero-band {
-    /* Path file foto kamu */
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                url('Rafi Akbar Muzaki/Swarabuana.png') no-repeat;
-    
-    /* Memastikan foto selalu fokus ke wajah personel */
-    background-size: cover;
-    background-position: center 20%; 
-    
-    /* Tinggi hero section */
-    height: 100vh; 
-    width: 100%;
-    position: relative;
-}
-
-/* KHUSUS UNTUK HP (Responsive Fix) */
 @media (max-width: 767px) {
     .hero-band {
-        /* Di HP jangan dipaksa 100vh agar tidak kepotong pinggirnya */
         height: 50vh !important; 
-        
-        /* Geser posisi agar personil di tengah tetap aman */
         background-position: center top !important;
     }
-    
     .hero-band h1 {
         font-size: 2.5rem;
     }
 }
 
-/* TOMBOL KOTAK KONTRAS */
+/* 5. TOMBOL */
 .btn-musik {
     background-color: #3e5dce; 
     color: #000;
@@ -135,14 +117,14 @@ body {
     transform: translateY(-3px);
 }
 
-/* KARTU PERSONIL - Ukuran pas kartu ID */
+/* 6. PERSONEL SECTION */
 .section-padding {
     padding: 100px 0;
 }
 
 .personil-card {
     background: #ffffff;
-    width: 250px; /* Ukuran lebar kartu tetap */
+    width: 250px;
     margin: 20px auto;
     border-radius: 0; 
     overflow: hidden;
@@ -168,7 +150,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top; /* Agar kepala personel tidak terpotong */
+    object-position: top;
 }
 
 .personil-info {
@@ -177,15 +159,17 @@ body {
 }
 
 .personil-info h5 {
+    font-family: 'Poppins', sans-serif !important; /* Personel pakai Poppins agar rapi */
     font-size: 1rem;
     font-weight: 700;
     color: var(--navy-blue);
     margin-bottom: 5px;
 }
 
+/* 7. JADWAL & COUNTDOWN */
 .btn-calender {
     background-color: transparent;
-    color: #b9c6dd; /* Navy Blue sesuai baju band */
+    color: #b9c6dd;
     border: 2px solid #b9c6dd;
     padding: 10px 20px;
     text-decoration: none;
@@ -204,39 +188,33 @@ body {
     box-shadow: 0 5px 15px rgba(44, 74, 124, 0.3);
 }
 
-/* Memastikan ikon kalender ikut berubah warna saat hover */
-.btn-calender:hover i {
-    color: #ffffff;
-}
-
 .countdown-style {
+    font-family: 'Poppins', sans-serif !important;
     font-size: 1.1rem;
     font-weight: 800;
-    color: #f1c40f; /* Warna kuning agar kontras dengan Navy */
+    color: #f1c40f;
     background: rgba(255, 255, 255, 0.1);
     padding: 8px 15px;
     border-radius: 4px;
     display: inline-block;
     margin-bottom: 10px;
-    font-family: 'Poppins', sans-serif;
     min-width: 200px;
 }
 
+/* 8. FOOTER */
 footer {
-    background-color: #2c4a7c !important; /* Ganti jadi Navy Blue sesuai baju band */
-    color: #ffffff !important; /* Semua teks umum jadi putih */
-    padding: 60px 0 20px; /* Memberi ruang agar tidak sesak */
+    background-color: #2c4a7c !important;
+    color: #ffffff !important;
+    padding: 60px 0 20px;
 }
 
-/* Mengganti warna judul SWARABUANA di footer */
 footer h4 {
-    color: #3e5dce !important; /* Warna Kuning Emas agar kontras */
-    font-family: 'Dancing Script', cursive; /* Biar estetik sesuai logo */
+    color: #3e5dce !important;
     font-size: 3rem;
 }
 
-/* Mengganti warna judul Management & Follow Us */
 footer h5 {
+    font-family: 'Poppins', sans-serif !important;
     color: #ffffff !important;
     font-weight: 700;
     text-transform: uppercase;
@@ -244,96 +222,65 @@ footer h5 {
 }
 
 footer .text-warning {
-    color: #a1afdf !important; /* Mengubah warna ikon Map, Phone, Email jadi Kuning */
+    color: #a1afdf !important;
 }
 
-/* Jika ingin ikon media sosial (Instagram/TikTok) jadi putih */
 footer .fab, footer .fas {
     color: #ffffff;
     transition: 0.3s;
 }
 
 footer .fab:hover {
-    color: #3e5dce; /* Berubah biru saat kursor lewat */
+    color: #3e5dce;
 }
 
-/* Keadaan awal: elemen tidak terlihat dan sedikit di bawah */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-/* Keadaan saat elemen muncul (aktif) */
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Lapisan hitam yang menutupi seluruh layar */
+/* 9. ANIMASI & TRANSISI */
 .welcome-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000000; /* Warna hitam pekat awal */
-    z-index: 10000; /* Di atas navbar dan segalanya */
-    transition: opacity 1.5s ease-in-out; /* Durasi memudar (1.5 detik) */
-    pointer-events: none; /* Agar tidak menghalangi klik setelah memudar */
+    background-color: #000000;
+    z-index: 10000;
+    transition: opacity 1.5s ease-in-out;
+    pointer-events: none;
 }
 
-/* Saat class ini ditambahkan, layar akan menjadi terang */
 .fade-to-bright {
     opacity: 0;
 }
 
-/* Memberi jeda animasi antar kolom agar muncul bergantian */
-.col-lg-4:nth-child(1) .reveal { transition-delay: 0.1s; }
-.col-lg-4:nth-child(2) .reveal { transition-delay: 0.3s; }
-.col-lg-4:nth-child(3) .reveal { transition-delay: 0.5s; }
-
-/* Styling untuk tabir transisi */
 .page-transition {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #2c4a7c; /* Navy Blue sesuai identitas band */
-    z-index: 99999; /* Pastikan di atas segalanya */
+    background-color: #2c4a7c;
+    z-index: 99999;
     transform: translateY(0);
     transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* Class ini akan dipicu oleh JavaScript saat halaman siap */
 .page-loaded .page-transition {
     transform: translateY(-100%);
 }
 
-/* Dasar elemen sebelum muncul */
 .reveal {
     opacity: 0;
     transition: all 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* Muncul dari bawah */
-.fade-up {
-    transform: translateY(50px);
-}
+.fade-up { transform: translateY(50px); }
+.fade-left { transform: translateX(-50px); }
+.fade-right { transform: translateX(50px); }
 
-/* Muncul dari kiri */
-.fade-left {
-    transform: translateX(-50px);
-}
-
-/* Muncul dari kanan */
-.fade-right {
-    transform: translateX(50px);
-}
-
-/* Keadaan saat aktif (muncul di layar) */
 .reveal.active {
     opacity: 1;
     transform: translate(0, 0);
 }
+
+.col-lg-4:nth-child(1) .reveal { transition-delay: 0.1s; }
+.col-lg-4:nth-child(2) .reveal { transition-delay: 0.3s; }
+.col-lg-4:nth-child(3) .reveal { transition-delay: 0.5s; }

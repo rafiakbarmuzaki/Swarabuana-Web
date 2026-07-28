@@ -57,20 +57,8 @@
         });
     });
 </script>
-
 <script>
-    window.addEventListener('load', function() {
-        const overlay = document.querySelector('.welcome-overlay');
-        
-        // Memberikan sedikit delay (misal 300ms) sebelum mulai memudar agar terasa transisinya
-        setTimeout(() => {
-            overlay.classList.add('fade-to-bright');
-        }, 300);
-    });
-</script>
-
-<script>
-    function createCountdown(id, dateString) {
+function createCountdown(id, dateString) {
         const targetDate = new Date(dateString).getTime();
 
         const timer = setInterval(function() {
@@ -84,6 +72,9 @@
 
             const display = document.getElementById(id);
             
+            // Pengaman: Jika elemen HTML belum/tidak ditemukan, hentikan proses agar tidak error
+            if (!display) return; 
+
             if (distance < 0) {
                 clearInterval(timer);
                 display.innerHTML = "ACARA SEDANG BERLANGSUNG!";
@@ -94,10 +85,18 @@
         }, 1000);
     }
 
-    // Panggil fungsi untuk masing-masing acara
-    createCountdown("countdown-mbec", "June 11, 2026 09:00:00");
-    createCountdown("countdown-jkt", "July 20, 2026 19:00:00");
-</script>
+    window.addEventListener('load', function() {
+        const overlay = document.querySelector('.welcome-overlay');
+        
+        if (overlay) {
+            setTimeout(() => {
+                overlay.classList.add('fade-to-bright');
+            }, 300);
+        }
+
+        createCountdown("countdown-ITDays", "September 3, 2026 15:30:00");
+    });
+    </script>
 <body>
 
 <div class="welcome-overlay"></div>
@@ -207,12 +206,12 @@
             <div class="col-lg-4 col-md-6">
                 <div class="personil-card reveal">
                     <div class="personil-img">
-                        <img src="Rafi Akbar Muzaki/Akbar.jpg" alt="Personil 3">
+                        <img src="Rafi Akbar Muzaki/Akbar1.jpg" alt="Personil 3">
                     </div>
                     <div class="personil-info">
                         <h5>Muhammad Akbaruddin</h5>
                         <h6>Informatika'24</h6>
-                        <p>Guitarist</p>
+                        <p>Keyboardist</p>
                     </div>
                 </div>
             </div>
@@ -258,14 +257,14 @@
                 <div class="col-md-8 col-lg-6">
                     <div class="card card-price shadow-lg border-0">
                         <div class="card-header bg-dark text-white text-center py-4">
-                            <h4 class="fw-bold mb-2">MBEC at Mercu Buana University (June 11, 2026)</h4>
+                            <h4 class="fw-bold mb-2">IT Days Universitas Mercu Buana (3 September 2026)</h4>
                             
                             <!-- Elemen Hitung Mundur -->
-                            <div id="countdown-mbec" class="mb-3 fw-bold text-warning" style="font-size: 1.2rem;">
+                            <div id="countdown-ITDays" class="mb-3 fw-bold text-warning" style="font-size: 1.2rem;">
                                 Memuat hitung mundur...
                             </div>
 
-                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=MBEC+at+Mercu+Buana+University&dates=20260611T020000Z/20260611T100000Z&details=Acara+MBEC+Swarabuana+Band+di+Universitas+Mercu+Buana&location=Universitas+Mercu+Buana,+Jakarta" 
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=IT+Days+Universitas+Mercu+Buana+&dates=20260903T083000Z/20260903T090000Z&details=Acara+IT+Days+Swarabuana+Band+di+Universitas+Mercu+Buana&location=Universitas+Mercu+Buana,+Jakarta
                             target="_blank" class="btn-calender">
                             <i class="fas fa-calendar-plus me-2"></i>Save to Google Calendar
                             </a>
@@ -305,6 +304,24 @@
                     <div class="gallery-item overflow-hidden rounded-3 shadow-sm">
                         <div class="container reveal fade-up"></div>
                         <img src="Rafi Akbar Muzaki/DSC_3596.JPG" class="img-fluid w-100" alt="Gitar">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item overflow-hidden rounded-3 shadow-sm">
+                        <div class="container reveal fade-up"></div>
+                        <img src="Rafi Akbar Muzaki/IMG_4427.JPG" class="img-fluid w-100" alt="Gitar">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item overflow-hidden rounded-3 shadow-sm">
+                        <div class="container reveal fade-up"></div>
+                        <img src="Rafi Akbar Muzaki\IMG_4415.jpg" class="img-fluid w-100" alt="Gitar">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item overflow-hidden rounded-3 shadow-sm">
+                        <div class="container reveal fade-up"></div>
+                        <img src="Rafi Akbar Muzaki\IMG_4414.jpg" class="img-fluid w-100" alt="Gitar">
                     </div>
                 </div>
             </div>
